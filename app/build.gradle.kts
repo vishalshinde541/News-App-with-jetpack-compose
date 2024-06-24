@@ -76,6 +76,14 @@ dependencies {
     // hilt navigation
     implementation(libs.hilt.navigation.compose)
 
+    //Retrofit
+    implementation(libs.retrofit)
+    implementation(libs.okhttp)
+    implementation(libs.gsonConverter)
+    implementation(libs.moshi)
+    implementation(libs.moshiConverter)
+    implementation(libs.loggingInterceptor)
+
 }
 
 kapt {

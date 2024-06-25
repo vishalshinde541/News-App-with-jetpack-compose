@@ -2,6 +2,8 @@ package com.example.newsapp.di
 
 import com.example.newsapp.data.AppConstants
 import com.example.newsapp.data.api.ApiService
+import com.example.newsapp.data.datasource.NewsDataSource
+import com.example.newsapp.data.datasource.NewsDataSourceImp
 import com. squareup. moshi. kotlin. reflect. KotlinJsonAdapterFactory
 import com.squareup.moshi.Moshi
 import dagger.Module
@@ -45,5 +47,9 @@ class AppModule {
     @Singleton
     fun provideApiService(retrofit: Retrofit) : ApiService {
         return retrofit.create(ApiService::class.java)
+    }
+
+    fun provideNewsDataSource(apiService: ApiService) : NewsDataSource{
+        return NewsDataSourceImp(apiService)
     }
 }

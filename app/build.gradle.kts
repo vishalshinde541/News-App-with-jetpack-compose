@@ -84,6 +84,10 @@ dependencies {
     implementation(libs.moshiConverter)
     implementation(libs.loggingInterceptor)
 
+    //Coroutines
+    implementation(libs.coroutiensCore)
+    implementation(libs.coroutiensAndroid)
+
 }
 
 kapt {

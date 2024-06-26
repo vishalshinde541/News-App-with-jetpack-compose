@@ -4,8 +4,9 @@ import com.example.newsapp.data.AppConstants
 import com.example.newsapp.data.api.ApiService
 import com.example.newsapp.data.datasource.NewsDataSource
 import com.example.newsapp.data.datasource.NewsDataSourceImp
-import com. squareup. moshi. kotlin. reflect. KotlinJsonAdapterFactory
+import com.example.newsapp.ui.repository.NewsRepository
 import com.squareup.moshi.Moshi
+import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -49,7 +50,15 @@ class AppModule {
         return retrofit.create(ApiService::class.java)
     }
 
+    @Provides
+    @Singleton
     fun provideNewsDataSource(apiService: ApiService) : NewsDataSource{
         return NewsDataSourceImp(apiService)
+    }
+
+    @Provides
+    @Singleton
+    fun provideNewsRepository(newsDataSource: NewsDataSource) : NewsRepository {
+        return NewsRepository(newsDataSource)
     }
 }

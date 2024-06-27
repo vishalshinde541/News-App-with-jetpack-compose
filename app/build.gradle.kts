@@ -88,6 +88,9 @@ dependencies {
     implementation(libs.coroutiensCore)
     implementation(libs.coroutiensAndroid)
 
+    //splash api
+    implementation(libs.androidx.core.splashscreen)
+
 }
 
 kapt {

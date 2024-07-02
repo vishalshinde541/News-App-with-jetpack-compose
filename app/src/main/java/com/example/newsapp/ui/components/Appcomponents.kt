@@ -129,3 +129,18 @@ fun AuthorDetailComponent(authorName: String?, sourceName:String?) {
     }
 }
 
+@Composable
+fun EmptyState() {
+    Column(modifier = Modifier
+        .fillMaxSize()
+        .padding(16.dp)) {
+        Text(text = "NO NEWS FOUND",
+            style = TextStyle(fontSize = 30.sp,
+                fontFamily = FontFamily.Monospace,
+                fontWeight = FontWeight.Bold,
+                color = Color.Black
+            )
+        )
+    }
+}
+

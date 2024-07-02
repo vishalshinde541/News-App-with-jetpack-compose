@@ -13,6 +13,7 @@ import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.unit.dp
 import androidx.hilt.navigation.compose.hiltViewModel
+import com.example.newsapp.ui.components.EmptyState
 import com.example.newsapp.ui.components.Loader
 import com.example.newsapp.ui.components.NewsList
 import com.example.newsapp.ui.components.NewsRowComponent
@@ -35,7 +36,7 @@ fun HomeScreen(newsViewModel: NewsViewModel = hiltViewModel()) {
     VerticalPager(state = pageState,
         modifier = Modifier.fillMaxSize(),
         pageSize = PageSize.Fill,
-        pageSpacing = 8.dp) { page ->
+        pageSpacing = 80.dp) { page ->
 
         when(newsResponse){
             is ResourceState.Loading -> {
@@ -45,7 +46,12 @@ fun HomeScreen(newsViewModel: NewsViewModel = hiltViewModel()) {
             is ResourceState.Success-> {
                 val response = (newsResponse as ResourceState.Success).data
                 Log.d(TAG, "INSIDE_SUCCESS response = $response")
-                NewsRowComponent(page, response.articles[page])
+                if (response.articles.isNotEmpty()){
+                    NewsRowComponent(page, response.articles[page])
+                }else{
+                    EmptyState()
+                }
+
             }
             is ResourceState.Error -> {
                 Log.d(TAG, "INSIDE_ERROR")

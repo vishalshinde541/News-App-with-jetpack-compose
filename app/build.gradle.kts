@@ -91,6 +91,9 @@ dependencies {
     //splash api
     implementation(libs.androidx.core.splashscreen)
 
+    // Coil
+    implementation(libs.coil.compose)
+
 }
 
 kapt {

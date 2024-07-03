@@ -1,5 +1,6 @@
 package com.example.newsapp.ui.viewmodel
 
+import android.util.Log
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.example.newsapp.data.AppConstants
@@ -31,6 +32,7 @@ class NewsViewModel @Inject constructor(
             newsRepository.getNewsHeadline(country)
                 .collectLatest { newsResponse ->
                     _news.value = newsResponse
+                    Log.d(TAG, "response = ${news.value}")
 
             }
         }

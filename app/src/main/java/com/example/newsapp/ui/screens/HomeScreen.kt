@@ -47,7 +47,7 @@ fun HomeScreen(newsViewModel: NewsViewModel = hiltViewModel()) {
                 val response = (newsResponse as ResourceState.Success).data
                 Log.d(TAG, "INSIDE_SUCCESS response = $response")
                 if (response.articles.isNotEmpty()){
-                    NewsRowComponent(page, response.articles[page])
+                    EmptyState()
                 }else{
                     EmptyState()
                 }

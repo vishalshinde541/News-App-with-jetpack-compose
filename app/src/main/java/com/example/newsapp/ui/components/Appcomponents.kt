@@ -156,6 +156,7 @@ fun EmptyState() {
             contentDescription = "",
             modifier = Modifier.size(80.dp, 80.dp)
         )
+        Spacer(modifier = Modifier.height(20.dp))
         Text(
             text = "NO news as off now check \nafter some time",
             style = TextStyle(
